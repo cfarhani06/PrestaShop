@@ -106,8 +106,8 @@ describe('BO - Catalog - Cart rules : Case 9 - Check Total available', async () 
   });
 
   const tests = [
-    {args:{testIdentifier: 'cartRuleAccepted', testTitle : 'for the first time'}},
-    {args:{testIdentifier: 'cartRuleNotAccepted', testTitle : 'for the second time'}},
+    {args: {testIdentifier: 'cartRuleAccepted', testTitle: 'for the first time'}},
+    {args: {testIdentifier: 'cartRuleNotAccepted', testTitle: 'for the second time'}},
   ];
 
   tests.forEach((test) => {
@@ -202,7 +202,7 @@ describe('BO - Catalog - Cart rules : Case 9 - Check Total available', async () 
           const voucherErrorText = await cartPage.getCartRuleErrorMessage(page);
           await expect(voucherErrorText).to.equal(cartPage.cartRuleAlreadyUsedErrorText);
         });
-      };
+      }
     });
   });
 

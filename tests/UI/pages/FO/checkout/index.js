@@ -278,6 +278,21 @@ class Checkout extends FOBasePage {
     await this.waitForSelectorAndClick(page, this.deliveryStepSection);
   }
 
+    /**
+   * Set promo code
+   * @param page {Page} Browser tab
+   * @param code {string} The promo code
+   * @param clickOnCheckoutPromoCodeLink {boolean} True if we need to click on promo code link
+   * @returns {Promise<void>}
+   */
+     async addPromoCode(page, code, clickOnCheckoutPromoCodeLink = true) {
+      if (clickOnCheckoutPromoCodeLink) {
+        await page.click(this.checkoutHavePromoCodeButton);
+      }
+      await this.setValue(page, this.checkoutHavePromoInputArea, code);
+      await page.click(this.checkoutPromoCodeAddButton);
+    }
+
   /**
    * Go to Payment Step and check that delivery step is complete
    * @param page {Page} Browser tab

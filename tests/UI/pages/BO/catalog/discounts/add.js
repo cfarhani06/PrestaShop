@@ -62,7 +62,7 @@ class AddCartRule extends BOBasePage {
     // Country Group Selection
     this.countrySelection = '#country_restriction';
     this.countryGroupSelection = '#country_select_2';
-    this.itemCountrySelection = item => `${this.countryGroupSelection} option:nth-child($[item})`;
+    this.itemCountrySelection = item => `${this.countryGroupSelection} option:nth-child(${item})`;
     this.firstCountrySelection = this.itemCountrySelection(1);
     this.secondCountrySelection = this.itemCountrySelection(2);
     this.countryGroupRemoveButton = '#country_select_remove';

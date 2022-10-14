@@ -27,7 +27,6 @@ const checkoutPage = require('@pages/FO/checkout');
 // Import data
 const CartRuleFaker = require('@data/faker/cartRule');
 const {countries} = require('@data/demo/countries');
-// const ProductData = require('@data/FO/product');
 const {DefaultCustomer} = require('@data/demo/customer');
 const {Products} = require('@data/demo/products');
 

@@ -70,8 +70,10 @@ class AddCartRule extends BOBasePage {
 
     // ---Carrier Restriction
     this.carrierRestriction = '#carrier_restriction';
-    this.carrierRestrictionPickUpInStore = '#carrier_select_2 > option:nth-child(1)';
-    this.carrierRestrictionDeliveryNextDay = '#carrier_select_2 > option:nth-child(2)';
+    this.carrierGroupSelection = '#carrier_select_2';
+    this.itemCarrierSelection = item => `${this.carrierGroupSelection} option:nth-child(${item})`;
+    this.carrierRestrictionPickUpInStore = this.itemCarrierSelection(1);
+    this.carrierRestrictionDeliveryNextDay = this.itemCarrierSelection(2);
     this.carrierRestrictionRemoveButton = '#carrier_select_remove';
     this.carrierRestrictionAddButton = '#carrier_select_add';
 
@@ -187,13 +189,6 @@ class AddCartRule extends BOBasePage {
       await page.click(this.countrySelection);
       await page.click(this.firstCountrySelection);
       await page.click(this.countryGroupRemoveButton);
-    }
-
-    // Set carrier discount
-    if (cartRuleData.carrierRestriction) {
-      await this.setChecked(page, this.carrierRestriction);
-      await page.click(this.carrierRestrictionPickUpInStore);
-      await page.click(this.carrierRestrictionRemoveButton);
     }
 
     // Fill minimum amount values
